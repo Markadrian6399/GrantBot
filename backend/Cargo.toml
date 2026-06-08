@@ -1,0 +1,50 @@
+[package]
+name = "backend"
+version = "0.1.0"
+edition = "2021"
+default-run = "backend"
+
+[lib]
+name = "backend"
+path = "src/lib.rs"
+
+[[bin]]
+name = "backend"
+path = "src/main.rs"
+
+[[bin]]
+name = "test_venice"
+path = "src/bin/test_venice.rs"
+
+[[bin]]
+name = "test_oneshot"
+path = "src/bin/test_oneshot.rs"
+
+[[bin]]
+name = "test_webhook"
+path = "src/bin/test_webhook.rs"
+
+[dependencies]
+axum = { version = "0.7", features = ["macros"] }
+tokio = { version = "1", features = ["full"] }
+tower = "0.4"
+tower-http = { version = "0.5", features = ["cors"] }
+sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "postgres", "uuid", "chrono", "migrate"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+reqwest = { version = "0.11", features = ["json", "rustls-tls"], default-features = false }
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+dotenvy = "0.15"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+hmac = "0.12"
+sha2 = "0.10"
+hex = "0.4"
+anyhow = "1"
+thiserror = "1"
+tokio-util = "0.7"
+axum-extra = "0.9"
+rand = "0.8"
+utoipa = { version = "4", features = ["axum_extras", "uuid", "chrono"] }
+utoipa-swagger-ui = { version = "7", features = ["axum"] }
