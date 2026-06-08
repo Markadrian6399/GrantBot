@@ -1,5 +1,5 @@
 # ── Build stage ──────────────────────────────────────────────────────────────
-FROM rust:1.76-slim AS builder
+FROM rust:1.82-slim AS builder
 WORKDIR /app
 
 # Install compile-time deps (pkg-config needed for some crates)
